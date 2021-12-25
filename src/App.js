@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router,Routes,Route,} from 'react-router-dom';
+import Counter from './components/Counter';
+import CounterHook from './components/CounterHook';
+import GetAllPolicy from './components/GetAllPolicy';
+import AddPolicy from './components/AddPolicy';
+import FetchPolicy from './components/FetchPolicy';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Header</h1>
+      <hr></hr>
+      <Router>
+      <Routes>
+      <Route path = '/counter1'element = {<Counter/>}/>
+      <Route path = '/counterhook'element = {<CounterHook/>}/>
+      <Route path = '/policy/all'element = {<GetAllPolicy/>}/>
+      <Route path = '/addpolicy'element = {<AddPolicy/>}/>
+      <Route path = '/policy/details/:policyId' element = {<FetchPolicy/>}/>
+      </Routes>
+    </Router>
     </div>
   );
 }
